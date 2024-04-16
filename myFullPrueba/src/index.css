@@ -13,7 +13,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 p {
@@ -36,11 +36,10 @@ h3 {
 }
 
 .container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
+    width: 100%; 
+    margin: 0; /* Elimina el margen lateral */
+    padding: 0; /* Elimina el padding lateral */
+    text-align: center;
 }
 
 .header {
@@ -48,7 +47,9 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+  width: 100%; 
   border-bottom: 1px solid #e6e6e6;
+  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
   margin-bottom: 60px;
 }
 
@@ -189,6 +190,16 @@ h3 {
   border-color: #000 transparent #555 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
+}
+
+
+  
+.header ul li:last-child {
+    margin-right: 100px; /* Agrega un margen derecho de 10px al último enlace */
+}  
+
+.logo{
+    margin-left: 100px;
 }
 
 @keyframes spin {
