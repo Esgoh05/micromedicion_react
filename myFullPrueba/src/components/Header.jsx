@@ -21,7 +21,7 @@ const Header = () => {
                 </li>
                 <li>
                     <Link to='/contact' >
-                        <FaUser /> Contacto
+                        Contacto
                     </Link>
                 </li>
                 <li>
