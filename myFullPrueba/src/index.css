@@ -9,6 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  background-color: #efeff0;
 }
 
 a {
@@ -32,7 +33,15 @@ h1,
 h2,
 h3 {
   font-weight: 600;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
+}
+
+h5{
+  font-size: 1.57rem;
+}
+
+.welcome-message h3{
+  color: #ffffff;
 }
 
 .container {
@@ -117,6 +126,8 @@ h3 {
 
 .form-group {
   margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .form-group input,
@@ -125,7 +136,7 @@ h3 {
   width: 100%;
   padding: 10px;
   border: 1px solid #e6e6e6;
-  border-radius: 5px;
+  border-radius: 30px;
   margin-bottom: 10px;
   font-family: inherit;
 }
@@ -187,6 +198,10 @@ h3 {
     margin-left: 100px;
 }
 
+.welcome-message{
+  margin-left: 100px;
+}
+
 
 .imgWelcome{
     position: absolute;
@@ -238,13 +253,54 @@ h3 {
   }
   
   .contenedor .elemento input {
-    background-color: #e8f0fe;
+    background-color: #d1d2d3;
     width: 100%;
     padding: 10px 0;
     border: 2px solid #e0e6ec;
     color: #000000;
     margin-bottom: 30px;
     border-radius: 10px;
+  }
+
+  .btn-primary{
+    background-color: #1e88e5;
+    color: #fff;
+    border-width: 2px;
+    font-weight: 400;
+    font-size: 0.8571em;
+    line-height: 1.35em;
+    border: none;
+    margin: 10px 1px;
+    border-radius: 0.1875rem;
+    padding: 11px 22px;
+    margin-inline-start: auto;
+  }
+
+  .btn-primary:hover{
+    background-color: #42A5F5;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #42A5F5;
+  }
+
+  .btn-danger{
+    border-width: 2px;
+    background-color: #FF3636;
+    color: white;
+    font-weight: 400;
+    font-size: 0.8571em;
+    line-height: 1.35em;
+    border: none;
+    margin: 10px 1px;
+    padding: 11px 22px;
+    border-radius: 0.1875rem;
+  }
+
+  .btn-danger:hover{
+    background-color: #ff5555;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #ff5555;
   }
   
   #btnLogin {
@@ -270,6 +326,13 @@ h3 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-self: stretch;
+  }
+
+  .vstack {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
     align-self: stretch;
   }
   
@@ -328,6 +391,273 @@ h3 {
     letter-spacing: 0.5px;
   }
 
+  /*.card {
+    border: 0;
+    border-radius: 0.1875rem;
+    display: inline-block;
+    position: relative;
+    width: calc(100% - 250px);
+    margin-bottom: 20px;
+    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+    margin-left: 0;
+    background-color: #ffffff;
+    transition: margin-left 0.3s ease;
+    z-index: -5; /* Ajusta el z-index para colocar el elemento .card encima de .panel-header */
+  /*}*/
+  .card {
+    border: 0;
+    border-radius: 0.1875rem;
+    display: inline-block;
+    position: relative;
+    width: calc(100% - 250px);
+    margin-bottom: 20px;
+    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+    top: -120px;
+    z-index: 2; 
+    background-color: white;
+  }
+  
+  /*.panel-header {
+    height: 60px;
+    padding-top: 80px;
+    padding-bottom: 45px;
+    background: #141E30;
+    background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
+    background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+    position: relative;
+    overflow: hidden;
+    margin-top: -70px;
+    z-index: 0; /* Ajusta el z-index para colocar el elemento .panel-header detrás de .card */
+  /*}*/
+  
+
+  .card .card-header {
+    padding: 15px 15px 0;
+    border: 0;
+  }
+
+  .sidebar {
+    width: 260px;
+    height: 100%;
+    background-color: #1E88E5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease; /* Agrega una transición suave para el cambio de transformación */
+    transform: translateX(-260px); /* Mueve el sidebar fuera de la pantalla por defecto */
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* Muestra el sidebar cuando está abierto */
+  }
+
+  .sidebar.open ~ .row .card {
+    margin-left: calc(260px + 30px); /* Ajusta el margen izquierdo con un espacio adicional de 20px */
+    margin-right: calc(30px); /* Ajusta el margen derecho con un espacio adicional de 20px */
+    width: calc(100% - 320px); 
+  }
+  
+  .header .sidebar-open h3 {
+    margin-left: calc(160px + 30px); /* Ajusta esta distancia según tu diseño */
+  }  
+
+  #logo-mini{
+    opacity: 1;
+    float: left;
+    width: 34px;
+    text-align: center;
+    margin-left: 6px;
+    margin-right: 12px;
+    margin-top: 5%;
+  }
+
+  .logo-normal{
+    display: block;
+    opacity: 1;
+    margin-top: 10%;
+    font-size: 16px;
+  }
+
+  .hstack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+  }
+
+  .logo-contenedor{
+    border-bottom: 1.5px solid #ffffff;
+    height: 20%;
+    width: 80%; /* Ancho de la línea */
+    margin: auto; /* Centra horizontalmente la línea */
+  }
+
+  .nav-item{
+    margin-top: 10%;
+    text-align: left;
+    margin-left: 0%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  .nav-item.active {
+    border-left: solid #007bff; /* Color de contorno cuando el elemento está activo */
+    background-color: #f8f9fa; /* Color de fondo cuando el elemento está activo */
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 30px;
+  }
+
+  .nav-item a {
+    /* Estilos para los enlaces dentro de los elementos de la lista */
+    display: block;
+    padding: 5px 0px;
+    color: #ffffff;  /*Color del texto */
+    text-decoration: none;
+    width: 100%;
+    margin-left: 15%;
+  }
+  
+  .nav-item a:hover {
+    background-color: rgba(233, 236, 239, 0.7);; /* Color de fondo al pasar el mouse sobre el enlace */
+    color: #1E88E5;
+    border: #efecef;
+    border-radius: 30px;
+    padding: 5px 35px;
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  .nav-item.active a {
+    color: #1E88E5; /* Color del texto del enlace activo */;
+  }
+
+  .nav-icon{
+    margin-right: 5%;
+  }
+
+  .card .card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card .card-header .card-icon-header {
+    margin-right: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+  }
+  
+  .card .card-header .card-title {
+    margin-inline-end: auto;
+  }
+
+  
+  .panel-header {
+    height: 80px;
+    background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+    position: relative;
+    overflow: hidden;
+    top: -80px;
+  }
+  
+  .modal-container {
+    max-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; /* Agrega scroll vertical si es necesario */
+    padding: 5% 0;
+  }
+  
+  .modal{
+    background: var(--clr-white);
+    width: 80vw;
+    max-width: 400px;
+    border-radius: var(--radius);
+    /*padding: 2rem 1rem;*/
+    text-align: center;
+    background-color: white;
+    position: relative;
+    height: -20%;
+  }
+
+  .modal-header button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000; /* Cambia el color según sea necesario */
+    font-size: 1.5rem;
+  }
+
+  .modal-header{
+    background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Añade un relleno para separar el contenido del borde */
+    color: #fff; /* Color de texto blanco para contrastar con el fondo */
+  }
+
+  .modal-body {
+    /*margin: 3% 5%;*/
+    background-color: white;
+  }
+  
+
+  .modal-footer{
+    display: flex; /* Establece el contenedor como un flexbox */
+    justify-content: flex-end;
+    margin-bottom: 3%;
+  }
+
+  .modal-footer button:last-child{
+    margin-right: 5%; /* Ajusta este valor según el espacio que desees */
+  }
+
+  section h5{
+    margin-inline-end: 30%;
+  }
+
+  .pngGotaWelcome{
+    display: block;
+    margin: auto;
+    width:30%;
+  }
+
+  .table-responsive{
+    display: grid;
+    overflow-x: scroll;
+    padding: 15px;
+  }
+
+  .td-name{
+    max-width: 150px;
+  }
+  
+
+  
+  
+  
+  @media (min-width: 768px) {
+    .content {
+      margin-left: 260px; /* Ajusta el margen izquierdo cuando el ancho de la pantalla es mayor a 768px */
+    }
+  
+    .sidebar.open + .content {
+      margin-left: 260px; /* Ajusta el margen izquierdo cuando el Sidebar está abierto */
+    }
+  }
+  
   
   
 @keyframes spin {

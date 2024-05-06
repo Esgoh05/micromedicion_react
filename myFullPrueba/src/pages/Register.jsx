@@ -1,4 +1,9 @@
 import { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import {toast} from 'react-toastify'
+import {reset, register} from '../features/auth/authSlice'
+import Spinner from "../components/Spinner"
 
 const Register = () => {
 
@@ -7,10 +12,16 @@ const Register = () => {
     email: '',
     password: '',
     password2: '',
+    phone: '',
   })
 
   //desestructurar formData
-  const {name, email, password, password2} = formData
+  const {name, email, password, password2, phone} = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth)
 
   //definir funcion onChange. Actualiza el estado
 
@@ -23,6 +34,31 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+
+    if(password !== password2){
+      toast.error('Las contrasenas no coinciden')
+    }else{
+      const userData = {
+        name, email, password, phone
+      }
+      dispatch(register(userData))
+    }
+  }
+
+  useEffect(() => {
+    if(isError){
+      toast.error(message)
+    }
+
+    if(isSuccess){
+      navigate('/login')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
+
+  if(isLoading){
+    return <Spinner />
   }
 
   return (
@@ -75,6 +111,17 @@ const Register = () => {
               name="password2"
               value={password2}
               placeholder="Por favor confirma tu password"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input 
+              type="tel" 
+              className="form-control"
+              id="phone"
+              name="phone"
+              value={phone}
+              placeholder="Por favor escribe tu numero de telefono"
               onChange={onChange}
             />
           </div>

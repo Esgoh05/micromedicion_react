@@ -1,7 +1,6 @@
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"
-import gotaRunningImage from "../assets/imgs/gotita_running.png";
-import slider1 from '../assets/imgs/slider1.png'
+
 
 
 const images = [
