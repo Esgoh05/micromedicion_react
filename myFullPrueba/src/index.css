@@ -632,8 +632,9 @@ h5{
     background: none;
     border: none;
     cursor: pointer;
-    color: #000; /* Cambia el color según sea necesario */
+    color: #000; 
     font-size: 1.5rem;
+    text-shadow: 0 1px 0 #fff;
   }
 
   .modal-header{
@@ -751,6 +752,27 @@ h5{
   color: #fff;
   border-color: #007bff;
 }
+
+.p-datatable-custom {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.p-datatable-custom th,
+.p-datatable-custom td {
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+.p-datatable-custom th {
+  background-color: #f2f2f2;
+}
+
+.p-datatable-custom tr:hover {
+  background-color: #ddd;
+}
+
 
   
 

@@ -113,10 +113,13 @@ const Users = () => {
             <div className='table-responsive'>
             <DataTable value={users} dataKey="id" paginator rows={rowsPerPage}  
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                        globalFilter={globalFilter} header={header} footer={currentPageReport}>
+                        globalFilter={globalFilter}
+                        header={header} 
+                        footer={currentPageReport}
+                        className="p-datatable-custom">
                 <Column field="name" header="Nombre" style={{ width: '25%' }} headerStyle={{ textAlign: 'center' }}></Column>
                 <Column field="phone" header="Teléfono" style={{ width: '20%' }} headerStyle={{ textAlign: 'center' }}></Column>
-                <Column field="isAdmin" header="Tipo de usuario" style={{ width: '20%' }} headerClassName="header-column"></Column>
+                <Column field="isAdmin" header="Tipo de usuario" body={(rowData) => <span>{rowData.isAdmin ? 'Admin' : 'User'}</span>} style={{ width: '20%' }} headerClassName="header-column"></Column>
                 <Column field="email" header="Correo electrónico" style={{ width: '25%' }} headerClassName="header-column"></Column>
                 <Column header="Editar" body={editButton} style={{ width: '25%' }} headerClassName="header-column"></Column>
                 <Column header="Eliminar" body={deleteButton} style={{ width: '25%' }} headerClassName="header-column"></Column>
