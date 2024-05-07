@@ -459,9 +459,44 @@ h5{
     width: calc(100% - 320px); 
   }
   
-  .header .sidebar-open h3 {
+  .header .sidebar-open .close-sidebar-button{
     margin-left: calc(160px + 30px); /* Ajusta esta distancia según tu diseño */
-  }  
+  }
+
+  .header .sidebar-open h3 {
+    margin-left: calc(10px); /* Ajusta esta distancia según tu diseño */
+  }
+  
+  .sidebar-toggle-button{
+    background-color: transparent;
+    color: white;
+    border: none;
+  }
+
+  .button .line{
+    height: 2px;
+    width: 25px;
+    background-color: white;
+    margin-bottom: 5px;
+  }
+
+  .button .middle-line{
+    height: 2px;
+    width: 20px;
+    background-color: white;
+    margin-bottom: 4px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+  }
+
+  .close-sidebar-button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+  }
 
   #logo-mini{
     opacity: 1;
@@ -644,6 +679,81 @@ h5{
     max-width: 150px;
   }
   
+  .p-datatable .p-column-header-content {
+    display: grid; /* Cambio de flex a grid */
+    align-items: center; 
+  }
+
+  .search-user-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 3%;
+    /*flex flex-wrap gap-2 align-items-center justify-content-between hstack*/
+  }
+
+  .search-user-container p{
+    padding-right: 1%;
+    font-size: 18px;
+  }
+
+  
+  .search-input-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+  }
+  
+  .search-input-container input {
+    padding: 8px; /* Ajusta el espacio interno del campo de entrada */
+    border-radius: 4px; /* Redondea los bordes del campo de entrada */
+    border: 1px solid #ccc; /* Agrega un borde al campo de entrada */
+    font-size: 14px; /* Ajusta el tamaño del texto */
+  }
+  
+  .search-input-container input:focus {
+    outline: none; /* Quita el contorno cuando el campo de entrada está enfocado */
+    border-color: #007bff; /* Cambia el color del borde cuando el campo de entrada está enfocado */
+  }
+
+  /* Estilos para el paginador de PrimeReact */
+.p-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Estilos para los botones del paginador */
+.p-paginator .p-paginator-current,
+.p-paginator .p-paginator-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-paginator .p-paginator-pages button {
+  margin: 0 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.p-paginator .p-paginator-pages button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Estilos para el botón activo del paginador */
+.p-paginator .p-paginator-pages button.p-paginator-active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+  
+
 
   
   

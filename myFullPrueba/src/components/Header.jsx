@@ -23,8 +23,21 @@ const Header = () => {
       <header className='header'>
       { user ? (
         <>
-            <div className={`welcome-message ${isOpen ? 'sidebar-open' : ''}`}>
-                <h3>Hola, {user.name}.</h3>
+            <div className={`welcome-message hstack ${isOpen ? 'sidebar-open' : ''}`}>
+            {isOpen ? (
+                <button className="close-sidebar-button" onClick={() => setIsOpen(false)}>
+                    <span className='span-close'>X</span>
+                </button>
+            ) : (
+                <button className="sidebar-toggle-button" onClick={() => setIsOpen(true)}>
+                <section className='button vstack'>
+                    <div className='line'></div>
+                    <div className='middle-line'></div>
+                    <div className='line'></div>
+                </section>
+                </button>
+            )}
+            <h3>Hola, {user.name}.</h3>
             </div>
         </>) : (
         <>
@@ -40,11 +53,11 @@ const Header = () => {
                   <FaSignInAlt /> Cerrar sesión
                 </Link>
               </li>
-              <li>
-                <button onClick={() => setIsOpen(!isOpen)}>
+              {/*<li>
+                <button >
                   <FaUser /> Perfil
                 </button>
-              </li>
+              </li>*/}
             </>
           ) : (
             <>

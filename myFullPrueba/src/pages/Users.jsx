@@ -1,25 +1,51 @@
-import { FaUsers, FaPlus, FaRegTrashAlt, FaEdit } from 'react-icons/fa';
+import { FaUsers, FaPlus, FaRegTrashAlt, FaSearch } from 'react-icons/fa';
+import { MdEdit } from 'react-icons/md'
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import { openModal } from '../features/modal/modalSlice';
 import Modal from '../pages/Modal'
 import { getUsers, reset } from '../features/auth/authSlice'
 import { useLocation } from 'react-router-dom'
 
-//import { DataTable } from 'primereact/datatable';
-//import { Column } from 'primereact/column';
-
-//import { Button } from 'primereact/button';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext'; 
         
         
-        
-        
-
 const Users = () => {
   const { pathname } = useLocation();
   const {isOpen} = useSelector((store) => store.modal)
   const { users } = useSelector((store) => store.auth);
+  const [globalFilter, setGlobalFilter] = useState(null); // Agrega el estado para el filtro global
+  const [rowsPerPage] = useState(10);
   const dispatch = useDispatch();
+
+  /*const editButtonTemplate = (rowData) => {
+    return (
+      <Button onClick={() => handleEdit(rowData)} className="btn-primary" icon="pi pi-pencil" label="Editar" />
+    );
+  };*/
+
+  const editButton = (rowData) => {
+    return (
+      <Button onClick={() => handleEdit(rowData)} className="btn-primary">
+        <MdEdit />
+        Editar
+      </Button>
+    );
+  };
+
+  const deleteButton = (rowData) => {
+    return (
+      <Button onClick={() => handleDelete(rowData)} className="btn-danger">
+        <FaRegTrashAlt />
+        Eliminar
+      </Button>
+    );
+  };
+  
+  
 
 
   // Llama a la acción para obtener la lista de usuarios al cargar el componente
@@ -38,6 +64,25 @@ const Users = () => {
 
 
   }, [dispatch, pathname, isOpen]);
+
+  const header = (
+    <div className="search-user-container hstack align-center">
+      <p className="m-0">Buscar:</p>
+      <div className="search-input-container">
+        <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Buscar..." />
+      </div>
+    </div>
+  );
+
+  const currentPageReport = (
+    <div className="p-paginator p-datatable-footer">
+      <span className="p-paginator-current">
+        Mostrando desde {users?.length > 0 ? 1 : 0} a {users?.length} de {users?.length} usuarios
+      </span>
+    </div>
+  );
+
+  
 
   return (
     <>
@@ -64,15 +109,20 @@ const Users = () => {
               <h2 className="card-title">
                 Usuarios registrados
               </h2>
-            </div> 
-            {/*<DataTable value={users} paginator rows={10} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
-                <Column field="name" header="Nombre" style={{ width: '25%' }}></Column>
-                <Column field="phone" header="Teléfono" style={{ width: '25%' }}></Column>
-                <Column field="isAdmin" header="Tipo de usuario" style={{ width: '25%' }}></Column>
-                <Column field="email" header="Correo electrónico" style={{ width: '25%' }}></Column>
-                <Column field="Editar" header="Editar" editor={(options) => statusEditor(options)} style={{ width: '25%' }}></Column>
-  </DataTable>*/}
+            </div>
             <div className='table-responsive'>
+            <DataTable value={users} dataKey="id" paginator rows={rowsPerPage}  
+                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                        globalFilter={globalFilter} header={header} footer={currentPageReport}>
+                <Column field="name" header="Nombre" style={{ width: '25%' }} headerStyle={{ textAlign: 'center' }}></Column>
+                <Column field="phone" header="Teléfono" style={{ width: '20%' }} headerStyle={{ textAlign: 'center' }}></Column>
+                <Column field="isAdmin" header="Tipo de usuario" style={{ width: '20%' }} headerClassName="header-column"></Column>
+                <Column field="email" header="Correo electrónico" style={{ width: '25%' }} headerClassName="header-column"></Column>
+                <Column header="Editar" body={editButton} style={{ width: '25%' }} headerClassName="header-column"></Column>
+                <Column header="Eliminar" body={deleteButton} style={{ width: '25%' }} headerClassName="header-column"></Column>
+            </DataTable>
+            </div>
+            {/*<div className='table-responsive'>
                 <table className='userDatatable'>
                     <thead>
                         <tr>
@@ -84,9 +134,9 @@ const Users = () => {
                             <th>Eliminar</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody>/*}
                         {/* Itera sobre la lista de usuarios y genera una fila para cada uno */}
-                        {users.map(user => (
+                        {/*{users.map(user => (
                             <tr key={user._id}>
                                 <td className='td-name'>{user.name}</td>
                                 <td className='td-phone'>{user.phone}</td>
@@ -108,7 +158,7 @@ const Users = () => {
                         ))}
                     </tbody>
                 </table>
-            </div>
+            </div>*/}
           </div>
         </div>
       </section>
