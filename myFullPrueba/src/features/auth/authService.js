@@ -48,7 +48,6 @@ const getUsers = async() => {
 
 }
 
-
 const authService = {
     register,
     login,

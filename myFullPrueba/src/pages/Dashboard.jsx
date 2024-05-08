@@ -1,7 +1,10 @@
-import { FaUsers, FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
+import { BsClipboard2Data } from 'react-icons/bs'
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
+import { InputText } from 'primereact/inputtext';
+
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Dashboard = () => {
@@ -16,6 +19,23 @@ const Dashboard = () => {
     }
   }, [user, navigate])
 
+  const header = (
+    <div className="search-user-container hstack align-center">
+      <p className="m-0">Buscar:</p>
+      <div className="search-input-container">
+        <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Buscar..." />
+      </div>
+    </div>
+  );
+
+  const currentPageReport = (
+    <div className="p-paginator p-datatable-footer">
+      <span className="p-paginator-current">
+        Mostrando desde {/*{users?.length > 0 ? 1 : 0} a {users?.length} de {users?.length}*/} usuarios
+      </span>
+    </div>
+  );
+
   return (
     <>
       <section className="row">
@@ -23,7 +43,7 @@ const Dashboard = () => {
           <div className="card">
             <div className="card-header vstack gap-3">
               <h2 className="card-title">
-                <FaUsers className='card-icon-header'/>
+                <BsClipboard2Data className='card-icon-header'/>
                 Usuarios
               </h2>
               <button type="button" className="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">

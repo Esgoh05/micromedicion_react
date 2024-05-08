@@ -1,7 +1,7 @@
-import { FaUsers, FaPlus, FaRegTrashAlt, FaSearch } from 'react-icons/fa';
+import { FaUsers, FaPlus, FaRegTrashAlt } from 'react-icons/fa';
 import { MdEdit } from 'react-icons/md'
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { openModal } from '../features/modal/modalSlice';
 import Modal from '../pages/Modal'
 import { getUsers, reset } from '../features/auth/authSlice'
@@ -11,6 +11,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext'; 
+
         
         
 const Users = () => {
@@ -20,12 +21,6 @@ const Users = () => {
   const [globalFilter, setGlobalFilter] = useState(null); // Agrega el estado para el filtro global
   const [rowsPerPage] = useState(10);
   const dispatch = useDispatch();
-
-  /*const editButtonTemplate = (rowData) => {
-    return (
-      <Button onClick={() => handleEdit(rowData)} className="btn-primary" icon="pi pi-pencil" label="Editar" />
-    );
-  };*/
 
   const editButton = (rowData) => {
     return (

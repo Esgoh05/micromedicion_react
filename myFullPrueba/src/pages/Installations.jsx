@@ -1,4 +1,5 @@
-import { FaHome, FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
+import { BsHouseGear } from 'react-icons/bs'
 
 const Installations = () => {
   return (
@@ -8,7 +9,7 @@ const Installations = () => {
           <div className="card">
             <div className="card-header vstack gap-3">
               <h2 className="card-title">
-                <FaHome className='card-icon-header'/>
+                <BsHouseGear className='card-icon-header'/>
                 Instalaciones
               </h2>
               <button type="button" className="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">

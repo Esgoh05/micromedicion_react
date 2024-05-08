@@ -773,6 +773,15 @@ h5{
   background-color: #ddd;
 }
 
+.houseCheck{
+  color: #1E88E5;
+  font-size: 16px;
+}
+
+.activeIndicator{
+  color: #1beb11;
+  font-size: 16px;
+}
 
   
 

@@ -11,6 +11,7 @@ import Users from './pages/Users'
 import Installations from './pages/Installations'
 import Devices from './pages/Devices'
 import Modal from './pages/Modal'
+import MeasurementPanel from './pages/MeasurementPanel'
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/dispositivos' element={<Devices/>} />
           <Route path='/instalaciones' element={<Installations/>} />
           <Route path='/registrar' element={<Modal/>} />
+          <Route path='/panel-consumo' element={<MeasurementPanel/>} />
         </Routes>
       </div>
     </Router>
