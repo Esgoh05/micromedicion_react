@@ -40,9 +40,6 @@ const Users = () => {
     );
   };
   
-  
-
-
   // Llama a la acción para obtener la lista de usuarios al cargar el componente
   useEffect(() => {
     
@@ -76,7 +73,6 @@ const Users = () => {
       </span>
     </div>
   );
-
   
 
   return (

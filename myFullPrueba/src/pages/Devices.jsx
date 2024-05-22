@@ -33,11 +33,19 @@ const Devices = () => {
   
     const deleteButton = (rowData) => {
       return (
-        <Button onClick={() => handleDelete(rowData)} className="btn-danger">
-          <FaRegTrashAlt />
-          Eliminar
-        </Button>
-      );
+        rowData.deviceStatus == 1 ? (
+            <>
+            <Button onClick={() => handleDelete(rowData)} className="btn-danger">
+                <FaRegTrashAlt />
+                Eliminar
+            </Button>
+            </>
+        ) : (
+            <Button className="btn-danger" disabled>
+                <FaRegTrashAlt />
+                Eliminar
+            </Button>
+        ));
     };
     
   // Llama a la acción para obtener la lista de usuarios al cargar el componente

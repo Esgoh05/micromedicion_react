@@ -81,6 +81,7 @@ const Login = () => {
                 name="password" 
                 value={password}
                 onChange={onChange}
+                placeholder="Por favor escribe tu contraseña"
             />
           </div>
 

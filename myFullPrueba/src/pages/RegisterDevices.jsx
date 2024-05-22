@@ -39,9 +39,6 @@ const RegisterDevices = () => {
           }
     
           console.log("datos dispositivos")
-          //dispatch(register(userData))
-          //---dispatch(closeModal())
-          //dispatch(getUsers())
           dispatch(registerDevice(deviceData))
           .then(() => {
             dispatch(closeModal());

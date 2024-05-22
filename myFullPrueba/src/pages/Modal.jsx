@@ -146,7 +146,7 @@ const Modal = () => {
                 <button type='button' className='btn btn-danger' onClick={() => { dispatch(closeModal()) }} >
                     Cerrar
                 </button>
-                </section>
+            </section>
         </div>
         </section>
         
