@@ -170,37 +170,37 @@ const RegisterInstallations = () => {
             <div className="form-group">
                 <label htmlFor="pipeDiameter">Diámetro de tuberia:</label>
                 <input 
-                type="text" 
-                className="form-control"
-                id="pipeDiameter"
-                name="pipeDiameter"
-                value={pipeDiameter}
-                placeholder="Por favor introduce factor K"
-                onChange={onChange}
+                    type="text" 
+                    className="form-control"
+                    id="pipeDiameter"
+                    name="pipeDiameter"
+                    value={pipeDiameter}
+                    placeholder="Por favor introduce factor K"
+                    onChange={onChange}
                 />
             </div>
             <div className="form-group">
                 <label htmlFor="ssid">SSID:</label>
                 <input 
-                type="text" 
-                className="form-control"
-                id="ssid"
-                name="ssid"
-                value={ssid}
-                placeholder="Por favor introduce factor K"
-                onChange={onChange}
+                    type="text" 
+                    className="form-control"
+                    id="ssid"
+                    name="ssid"
+                    value={ssid}
+                    placeholder="Por favor introduce factor K"
+                    onChange={onChange}
                 />
             </div>
             <div className="form-group">
                 <label htmlFor="passwordSsid">Contraseña SSID:</label>
                 <input 
-                type="password" 
-                className="form-control"
-                id="passwordSsid"
-                name="passwordSsid"
-                value={passwordSsid}
-                placeholder="Por favor introduce factor K"
-                onChange={onChange}
+                    type="password" 
+                    className="form-control"
+                    id="passwordSsid"
+                    name="passwordSsid"
+                    value={passwordSsid}
+                    placeholder="Por favor introduce factor K"
+                    onChange={onChange}
                 />
             </div>
         </section>

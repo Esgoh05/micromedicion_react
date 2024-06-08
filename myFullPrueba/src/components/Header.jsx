@@ -13,6 +13,7 @@ const Header = () => {
   const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {
+    setIsOpen(false);
     dispatch(logout());
     dispatch(reset());
     navigate('/login');
@@ -76,11 +77,11 @@ const Header = () => {
                   Contacto
                 </Link>
               </li>
-              <li>
+              {/*<li>
                 <Link to='/register'>
                   <FaUser /> Registrar
                 </Link>
-              </li>
+              </li>*/}
             </>
           )}
         </ul>

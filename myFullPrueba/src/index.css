@@ -606,7 +606,6 @@ h5{
     margin-inline-end: auto;
   }
 
-  
   .panel-header {
     height: 80px;
     background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
@@ -627,7 +626,7 @@ h5{
     display: grid;
     align-items: center;
     justify-content: center;
-    overflow-y: auto; /* Agrega scroll vertical si es necesario */
+    overflow-y: auto; 
     padding: 5% 0;
   }
   
@@ -658,7 +657,7 @@ h5{
   .modal-header{
     background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
     width: 100%; /* Ancho completo */
-    padding: 10px; /* Añade un relleno para separar el contenido del borde */
+    padding: 10px; 
     color: #fff; /* Color de texto blanco para contrastar con el fondo */
   }
 
@@ -669,18 +668,82 @@ h5{
   
 
   .modal-footer{
-    display: flex; /* Establece el contenedor como un flexbox */
+    display: flex; 
     justify-content: flex-end;
     margin-bottom: 3%;
   }
 
   .modal-footer button:last-child{
-    margin-right: 5%; /* Ajusta este valor según el espacio que desees */
+    margin-right: 5%; 
   }
 
-  section h5{
+  .modal-header h5{
     margin-inline-end: 30%;
   }
+
+  .modal-filter-container {
+    max-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; 
+    padding: 5% 0;
+  }
+
+  .modal-filter{
+    background: var(--clr-white);
+    width: 80vw;
+    max-width: 400px;
+    border-radius: var(--radius);
+    /*padding: 2rem 1rem;*/
+    text-align: center;
+    background-color: white;
+    position: relative;
+    height: -20%;
+  }
+
+  .modal-filter-header button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000; 
+    font-size: 1.5rem;
+    text-shadow: 0 1px 0 #fff;
+  }
+
+  .modal-filter-header h5{
+    text-align: justify;
+    padding-left: 10px;
+  }
+
+  .modal-filter-header{
+    background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Relleno para separar el contenido del borde */
+    color: #fff; /* Color de texto blanco para contrastar con el fondo */
+  }
+
+  .modal-filter-body {
+    background-color: white;
+  }
+
+  .modal-filter-body h5{
+    padding: 3% 0% 5%;
+  }
+
+  /*section h5{
+    margin-inline-end: 30%;
+  }*/
 
   .pngGotaWelcome{
     display: block;
@@ -831,15 +894,15 @@ h5{
   
   
   
-  @media (min-width: 768px) {
-    .content {
-      margin-left: 260px; /* Ajusta el margen izquierdo cuando el ancho de la pantalla es mayor a 768px */
-    }
-  
-    .sidebar.open + .content {
-      margin-left: 260px; /* Ajusta el margen izquierdo cuando el Sidebar está abierto */
-    }
+@media (min-width: 768px) {
+  .content {
+    margin-left: 260px; /* Ajusta el margen izquierdo cuando el ancho de la pantalla es mayor a 768px */
   }
+
+  .sidebar.open + .content {
+    margin-left: 260px; /* Ajusta el margen izquierdo cuando el Sidebar está abierto */
+  }
+}
   
   
   
@@ -863,5 +926,32 @@ h5{
 
   .heading p {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    width: 90%;
+  }
+
+  .heading h1 {
+    font-size: 2rem;
+  }
+
+  .heading p {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    border: 0;
+    border-radius: 0.1875rem;
+    display: inline-block;
+    position: relative;
+    width: calc(100% - 250px);
+    margin-bottom: 20px;
+    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+    top: -140px;
+    z-index: 2; 
+    background-color: white;
   }
 }
