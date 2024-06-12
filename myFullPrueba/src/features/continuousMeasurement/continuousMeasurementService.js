@@ -13,21 +13,32 @@ const getContinuousMeasurement = async() => {
 }
 
 const filterMeasurement = async(information) => {
-    console.log(information)
+    //console.log(information)
 
 
     const response = await axios.post(API_URL+'filtrarMedicion', information)
 
-    console.log(response.data)
+    //console.log(response.data)
 
     return response.data
 }
 
 const filterMonthMeasurement = async(information) => {
-    console.log(information)
+    //console.log(information)
 
 
     const response = await axios.post(API_URL+'filtraMedicionMes', information)
+
+    //console.log(response.data)
+
+    return response.data
+}
+
+const filterDateMeasurement = async(information) => {
+    console.log(information)
+
+
+    const response = await axios.post(API_URL+'filtraMedicionPeriodo', information)
 
     console.log(response.data)
 
@@ -37,7 +48,8 @@ const filterMonthMeasurement = async(information) => {
 const continuousMeasurementService = {
     getContinuousMeasurement,
     filterMeasurement,
-    filterMonthMeasurement
+    filterMonthMeasurement,
+    filterDateMeasurement
 }
 
 export default continuousMeasurementService

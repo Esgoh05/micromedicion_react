@@ -37,6 +37,15 @@ export const filterMonthMeasurement = createAsyncThunk('continuousMeasurement/fi
     }
 })
 
+export const filterDateMeasurement = createAsyncThunk('continuousMeasurement/filterDateMeasurement', async (information, thunkAPI) => {
+    try{
+        return await continuousMeasurementService.filterDateMeasurement(information)
+    }catch(error){
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 export const continuousMeasurementSlice = createSlice({
     name: 'continuousMeasurement',
     initialState,
@@ -80,6 +89,19 @@ export const continuousMeasurementSlice = createSlice({
                 state.graphicsInformation = action.payload // Actualiza el estado con los datos filtrados
             })
             .addCase(filterMonthMeasurement.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(filterDateMeasurement.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(filterDateMeasurement.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.graphicsInformation = action.payload // Actualiza el estado con los datos filtrados
+            })
+            .addCase(filterDateMeasurement.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload

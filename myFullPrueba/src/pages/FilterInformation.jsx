@@ -7,7 +7,7 @@ import { getDevices } from '../features/device/deviceSlice'
 import { getUsers } from '../features/auth/authSlice'
 import { getInstallations } from '../features/installation/installationSlice'
 import { closeModal } from '../features/modal/modalSlice'
-import { filterMeasurements, filterMonthMeasurement } from '../features/continuousMeasurement/continuousMeasurementSlice'
+import { filterMeasurements, filterMonthMeasurement, filterDateMeasurement } from '../features/continuousMeasurement/continuousMeasurementSlice'
 //import Spinner from "../components/Spinner"
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'; 
@@ -122,7 +122,7 @@ const FilterInformation = () => {
             month: inputMonth
         }
 
-        console.log("Month " + JSON.stringify(information))
+        //console.log("Month " + JSON.stringify(information))
         dispatch(filterMonthMeasurement(information))
         .then(() => {
             dispatch(closeModal());
@@ -138,7 +138,9 @@ const FilterInformation = () => {
             endDate
         };
 
-        dispatch(filterMeasurements(information))
+        console.log(startDate)
+        console.log(endDate)
+        dispatch(filterDateMeasurement(information))
         .then(() => {
             dispatch(closeModal());
         });
