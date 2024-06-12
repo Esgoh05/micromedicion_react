@@ -30,9 +30,9 @@ const logout = async() => {
 //Se crea peticion para obtener todos los datos de los usuarios
 const getUsers = async() => {
     const userData = JSON.parse(localStorage.getItem('user'))
-    console.log(`respondio: ${userData}`)
+    //console.log(`respondio: ${userData}`)
     const token = userData.token
-    console.log(`el token es: ${token}`)
+    //console.log(`el token es: ${token}`)
 
     !token ? console.log(`No hay token`) : console.log(`Token existe`)
 
@@ -41,8 +41,6 @@ const getUsers = async() => {
             Authorization: `Bearer ${token}`
         }
     })
-
-    console.log(response.data)
 
     return response.data
 
