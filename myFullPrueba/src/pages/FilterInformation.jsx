@@ -20,6 +20,8 @@ const FilterInformation = () => {
     const [deviceOptions, setDeviceOptions] = useState([]);
     const [selectedDevices, setSelectedDevices] = useState([]);
     const [inputMonth, setInputMonth] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
     const dispatch = useDispatch();
 
     const allEmails = users.map(user => ({
@@ -69,6 +71,23 @@ const FilterInformation = () => {
         setInputMonth(e.target.value);
     };
 
+    const handleChangeStartDate = (e) => {
+        const newStartDate = new Date(e.target.value);
+        setStartDate(e.target.value);
+    
+        const nextDay = new Date(newStartDate);
+        nextDay.setDate(newStartDate.getDate() + 1);
+        
+        if (endDate && new Date(endDate) < nextDay) {
+            setEndDate('');
+        }
+    };
+    
+
+    const handleChangeEndDate = (e) => {
+        setEndDate(e.target.value);
+    };
+
     const [formData, setFormData] = useState({
         email: '',
         deviceId: ''
@@ -110,6 +129,20 @@ const FilterInformation = () => {
         });
 
     }
+
+    const onSubmitDate = (e) => {
+        e.preventDefault();
+
+        const information = {
+            startDate,
+            endDate
+        };
+
+        dispatch(filterMeasurements(information))
+        .then(() => {
+            dispatch(closeModal());
+        });
+    };
 
     useEffect(() => {
         dispatch(getUsers());
@@ -228,13 +261,26 @@ const FilterInformation = () => {
                         <h5>Periodo.</h5>
                         <div className='vstack form-group'>
                             <div className='hstack'>
-                                <input type="Date" />
+                                <input 
+                                    type="Date"
+                                    className='inputDate' 
+                                    value={startDate}
+                                    onChange={handleChangeStartDate}
+                                />
 
-                                <input type="Date" />
+                                <input 
+                                    type="Date"
+                                    className='inputDate' 
+                                    value={endDate}
+                                    min={startDate ? new Date(new Date(startDate).setDate(new Date(startDate).getDate() + 1)).toISOString().split('T')[0] : ''}
+                                    onChange={handleChangeEndDate}
+                                />
                             </div>
                         </div>
                         <div>
-                            <button className='btn-primary btn-lg'>Graficar</button>
+                            <form onSubmit={ onSubmitDate }>
+                                <button className='btn-primary btn-lg' disabled={!startDate || !endDate}>Graficar</button>
+                            </form>
                         </div>
                     </section>
                 
